@@ -1,0 +1,104 @@
+{
+    "name": "electron-react-typescript",
+    "version": "1.0.0",
+    "description": "An Electron boilerplate including TypeScript, React, Jest and ESLint.",
+    "main": "./dist/main.js",
+    "scripts": {
+        "dev": "npm-run-all -p dev:react electron:serve",
+        "dev:electron": "cross-env NODE_ENV=development webpack --config webpack/electron.webpack.js --mode development && npm run start:electron",
+        "dev:react": "cross-env NODE_ENV=development webpack-dev-server --config webpack/react.webpack.js --mode development",
+        "electron:serve": "wait-on http-get://localhost:4000/ && npm run dev:electron",
+        "start:electron": "electron .",
+        "build": "npm-run-all build:electron build:react",
+        "build:run": "npm-run-all build start:electron",
+        "build:electron": "webpack --config webpack/electron.webpack.js",
+        "build:react": "webpack --config webpack/react.webpack.js",
+        "package": "npm-run-all build package:dist",
+        "package:dist": "electron-builder --dir",
+        "test": "jest",
+        "format": "prettier --write src/**/*.ts{,x} electron/**/*.ts{,x}",
+        "lint": "eslint src/**/*.ts{,x} electron/**/*.ts{,x}"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "license": "MIT",
+    "dependencies": {
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "^4.0.1",
+        "styled-components": "^5.2.1"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.5",
+        "@babel/preset-react": "^7.9.4",
+        "@babel/preset-typescript": "^7.9.0",
+        "@commitlint/cli": "^9.0.1",
+        "@commitlint/config-conventional": "^9.0.1",
+        "@commitlint/core": "^9.0.1",
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^11.1.0",
+        "@testing-library/user-event": "^12.1.10",
+        "@types/electron-devtools-installer": "^2.2.0",
+        "@types/jest": "^26.0.15",
+        "@types/node": "^12.0.0",
+        "@types/react": "^17.0.0",
+        "@types/react-dom": "^17.0.0",
+        "@types/react-router-dom": "^5.1.6",
+        "@types/styled-components": "^5.1.5",
+        "babel-loader": "^8.1.0",
+        "commitizen": "^4.1.2",
+        "cross-env": "^7.0.2",
+        "cz-conventional-changelog": "3.2.0",
+        "electron": "^8.2.2",
+        "electron-builder": "^22.7.0",
+        "electron-devtools-installer": "^3.1.0",
+        "eslint-config-airbnb-typescript": "^12.0.0",
+        "eslint-config-prettier": "^6.15.0",
+        "eslint-plugin-prettier": "^3.1.4",
+        "html-webpack-plugin": "^4.2.0",
+        "husky": "^4.3.0",
+        "lint-staged": "^10.5.2",
+        "jest": "^26.1.0",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.2.1",
+        "ts-jest": "^26.1.1",
+        "typescript": "4.0.5",
+        "wait-on": "^5.0.1",
+        "webpack": "^4.42.1",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "^3.10.3"
+    },
+    "build": {
+        "appId": "your.id",
+        "mac": {
+            "category": "public.app-category.video"
+        },
+        "directories": {
+            "output": "packages"
+        },
+        "files": [
+            "package.json",
+            "dist/**"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.css": "stylelint --fix",
+        "*.{js,css,md}": "prettier --write"
+    }
+}
