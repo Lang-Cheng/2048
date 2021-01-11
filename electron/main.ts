@@ -1,7 +1,7 @@
 /*
  * @Author: Lang Cheng
  * @Date: 2021-01-10 19:14:16
- * @LastEditTime: 2021-01-10 20:17:24
+ * @LastEditTime: 2021-01-11 12:05:10
  * @LastEditors: Lang Cheng
  * @Description: electron
  * @FilePath: \2048\electron\main.ts
@@ -33,13 +33,7 @@ function createWindow() {
     if (process.env.NODE_ENV === 'development') {
         mainWindow.loadURL('http://localhost:4000');
     } else {
-        mainWindow.loadURL(
-            url.format({
-                pathname: path.join(__dirname, 'renderer/index.html'),
-                protocol: 'file:',
-                slashes: true
-            })
-        );
+        mainWindow.loadFile(path.join(__dirname, 'renderer/index.html'));
     }
 
     mainWindow.on('closed', () => {
