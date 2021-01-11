@@ -10,6 +10,10 @@ Forked from https://github.com/diego3g/electron-typescript-react, added customiz
 yarn install
 ```
 
+```bash
+VSCode ESLint & Prettier Extensions required
+```
+
 ## Usage
 
 In order to run this project 2 scripts will need to be executed `dev:react` and `dev:electron`, run each one in a different terminal and always run `dev:react` before `dev:electron`, or `dev` to run them in order automatically
