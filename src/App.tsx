@@ -2,7 +2,7 @@ import React from 'react';
 
 import { render } from 'react-dom';
 
-import Greetings from './components/Greetings';
+import Board from './components/Board';
 import { GlobalStyle } from './styles/GlobalStyle';
 
 const mainElement = document.createElement('div');
@@ -13,7 +13,7 @@ const App = () => {
     return (
         <>
             <GlobalStyle />
-            <Greetings />
+            <Board />
         </>
     );
 };

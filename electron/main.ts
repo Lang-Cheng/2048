@@ -1,7 +1,7 @@
 /*
  * @Author: Lang Cheng
  * @Date: 2021-01-10 19:14:16
- * @LastEditTime: 2021-01-11 14:51:17
+ * @LastEditTime: 2021-01-11 17:32:54
  * @LastEditors: Lang Cheng
  * @Description: electron
  * @FilePath: \2048\electron\main.ts
@@ -10,13 +10,13 @@
 import * as path from 'path';
 
 /* eslint-disable import/no-extraneous-dependencies */
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, Menu } from 'electron';
 /* eslint-enable import/no-extraneous-dependencies */
 
-let mainWindow: Electron.BrowserWindow | null;
-
 function createWindow() {
-    mainWindow = new BrowserWindow({
+    Menu.setApplicationMenu(null);
+    const mainWindow = new BrowserWindow({
+        title: '2048',
         width: 1100,
         height: 700,
         backgroundColor: '#191622',
@@ -41,7 +41,7 @@ function createWindow() {
 app.on('ready', () => {
     createWindow();
 
-    app.on('activate', function () {
+    app.on('activate', function activate() {
         // On macOS it's common to re-create a window in the app when the
         // dock icon is clicked and there are no other windows open.
         if (BrowserWindow.getAllWindows().length === 0) createWindow();
@@ -56,3 +56,6 @@ app.on('window-all-closed', () => {
         app.quit();
     }
 });
+
+// In this file you can include the rest of your app"s specific main process
+// code. You can also put them in separate files and require them here.
