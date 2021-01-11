@@ -1,7 +1,7 @@
 /*
  * @Author: Lang Cheng
  * @Date: 2021-01-10 19:14:16
- * @LastEditTime: 2021-01-11 17:32:54
+ * @LastEditTime: 2021-01-12 02:29:44
  * @LastEditors: Lang Cheng
  * @Description: electron
  * @FilePath: \2048\electron\main.ts
@@ -17,8 +17,8 @@ function createWindow() {
     Menu.setApplicationMenu(null);
     const mainWindow = new BrowserWindow({
         title: '2048',
-        width: 1100,
-        height: 700,
+        width: 475,
+        height: 485,
         backgroundColor: '#191622',
         webPreferences: {
             nodeIntegration: true,
