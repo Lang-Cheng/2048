@@ -1,14 +1,13 @@
 /*
  * @Author: Lang Cheng
  * @Date: 2021-01-10 19:14:16
- * @LastEditTime: 2021-01-11 12:05:10
+ * @LastEditTime: 2021-01-11 12:06:50
  * @LastEditors: Lang Cheng
  * @Description: electron
  * @FilePath: \2048\electron\main.ts
  */
 
 import * as path from 'path';
-import * as url from 'url';
 
 /* eslint-disable import/no-extraneous-dependencies */
 import { app, BrowserWindow } from 'electron';
