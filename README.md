@@ -1,8 +1,6 @@
-## Electron + TypeScript + React
+## Game 2048
 
-Boilerplate for a project using Electron, React and Typescript
-
-Forked from https://github.com/diego3g/electron-typescript-react, added customized features
+Simple 2048 game built with electron
 
 ## Installation
 
